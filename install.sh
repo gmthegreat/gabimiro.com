@@ -24,7 +24,7 @@ source $ROOT/scripts/helper-functions.sh
 load_config_file
 
 # Cleanup the www directory.
-delete_www_content
+delete_site_content_and_db
 
 # Create Wordpress core files.
 generate_word_press_core

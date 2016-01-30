@@ -32,7 +32,7 @@ function load_config_file {
 ##
 # Delete all the content within the /www folder.
 ##
-function delete_www_content {
+function delete_site_content_and_db {
   if [ -d $ROOT/www/ ]; then
     echo -e "${LBLUE}> Cleaning up the www directory${RESTORE}"
     rm -rf $ROOT/www/
@@ -67,12 +67,23 @@ function generate_word_press_core {
 # Create Wordpress config file.
 ##
 function generate_word_press_config {
-  wp core config --dbhost=$MYSQL_HOSTNAME --dbname=$MYSQL_DB_NAME --dbuser=$MYSQL_USERNAME --dbpass=$MYSQL_PASSWORD
+  cd $ROOT/www
+  wp core config \
+  --dbhost=$MYSQL_HOSTNAME \
+  --dbname=$MYSQL_DB_NAME \
+  --dbuser=$MYSQL_USERNAME \
+  --dbpass=$MYSQL_PASSWORD
 }
 
 ##
 # Install Wordpress.
 ##
 function install_word_press {
-wp core install --url=$BASE_DOMAIN_PATH --admin_name=$admin_name --admin_password=$ADMIN_PASSWORD --admin_email=$ADMIN_EMAIL
+  cd $ROOT/www
+  wp core install \
+  --url=$SERVER_BASE_PATH \
+  --admin_name=$admin_name \
+  --admin_password=$ADMIN_PASSWORD \
+  --admin_email=$ADMIN_EMAIL \
+  --title=$SERVER_TITLE
 }
