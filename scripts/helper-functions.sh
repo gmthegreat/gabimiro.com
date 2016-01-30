@@ -62,3 +62,10 @@ function create_word_press_core {
     wp core download --path=www --version=$WP_VERSION
   fi
 }
+
+##
+# Install WOrdpress.
+##
+function install_word_press {
+wp core install --url=$BASE_DOMAIN_URL --admin_name=$ADMIN_USERNAME --admin_password=$ADMIN_PASSWORD --admin_email=$ADMIN_EMAIL
+}

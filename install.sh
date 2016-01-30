@@ -28,3 +28,6 @@ delete_www_content
 
 # Create Wordpress core files.
 create_word_press_core
+
+# Install Wordpress.
+install_word_press
