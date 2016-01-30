@@ -48,9 +48,9 @@ function delete_www_content {
 }
 
 ##
-# Download WOrdpress.
+# Generate Wordpress.
 ##
-function create_word_press_core {
+function generate_word_press_core {
   # Downloading Wordpress latest version.
   if [[ -z "$WP_VERSION" ]]
   then
@@ -64,8 +64,15 @@ function create_word_press_core {
 }
 
 ##
-# Install WOrdpress.
+# Create Wordpress config file.
+##
+function generate_word_press_config {
+  wp core config --dbhost=$MYSQL_HOSTNAME --dbname=$MYSQL_DB_NAME --dbuser=$MYSQL_USERNAME --dbpass=$MYSQL_PASSWORD
+}
+
+##
+# Install Wordpress.
 ##
 function install_word_press {
-wp core install --url=$BASE_DOMAIN_URL --admin_name=$ADMIN_USERNAME --admin_password=$ADMIN_PASSWORD --admin_email=$ADMIN_EMAIL
+wp core install --url=$BASE_DOMAIN_PATH --admin_name=$admin_name --admin_password=$ADMIN_PASSWORD --admin_email=$ADMIN_EMAIL
 }

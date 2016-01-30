@@ -27,7 +27,10 @@ load_config_file
 delete_www_content
 
 # Create Wordpress core files.
-create_word_press_core
+generate_word_press_core
+
+# Generate Wordpress config file.
+generate_word_press_config
 
 # Install Wordpress.
 install_word_press

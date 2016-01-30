@@ -3,6 +3,11 @@
 #########################################################################################
 #
 # Connect to remote server via an ssh connection.
+# Password is not required. The Remote server authentication validate the user
+# ssh public key accordingly.
+#
+# In cse you get an error "access forbidden" then check if
+# your ssh public key was properly added to the server.
 #
 # Do not change this file, Config should be defiend on the "config.sh".
 #

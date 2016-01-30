@@ -12,6 +12,7 @@
 WP_VERSION=""
 # Modify the URL below to match your local domain the site will be accessible on.
 BASE_DOMAIN_URL="http://localhost/gabimiro.com/www/"
+BASE_DOMAIN_PATH="/var/www/html/gabimiro.com/"
 
 
 # Modify the login details below to be the desired
