@@ -30,9 +30,18 @@ function load_config_file {
 
 
 ##
-# Delete all the content within the /www folder.
+# Delete the site database.
 ##
-function delete_site_content_and_db {
+function delete_the_site_db {
+  echo -e "${LBLUE}> Deleting the Database ${RESTORE}"
+  mysql --user=$MYSQL_USERNAME --password=$MYSQL_PASSWORD -e "DROP DATABASE IF EXISTS $MYSQL_HOSTNAME ;"
+}
+
+
+##
+# Delete all the content within the /www dircetory.
+##
+function delete_site_www_directory {
   if [ -d $ROOT/www/ ]; then
     echo -e "${LBLUE}> Cleaning up the www directory${RESTORE}"
     rm -rf $ROOT/www/
@@ -46,6 +55,7 @@ function delete_site_content_and_db {
     echo
   fi
 }
+
 
 ##
 # Generate Wordpress.
