@@ -1,4 +1,4 @@
-# WordPress 4.4.1 - Install Profile gabrielmiro.com
+# WordPress - Install Profile gabrielmiro.com
 
 This is a starting base to create WordPress websites using an install profile.
 
@@ -35,7 +35,7 @@ Run the install script from within the root of the repository:
 5. Create an empty `wp-content/uploads` directory
 6. Makes a symlink within the `/www/profiles` directory to the `/gabrielmiro`
    directory.
-7. Run the WordPress 4.4.1 installer (WP-CLI) using the `gabrielmiro` profile.
+7. Run the WordPress installer (WP-CLI) using the `gabrielmiro` profile.
 
 #### Warning!
 

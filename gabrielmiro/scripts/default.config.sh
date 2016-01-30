@@ -9,6 +9,8 @@
 #########################################################################################
 
 # Remote server authorized user name.
+WP_VERSION=""
+# Remote server authorized user name.
 SERVER_USER_NAME="johnsmith"
 # Remote server name.
 SERVER_NAME="example-server.com"
