@@ -9,10 +9,9 @@
 #
 #########################################################################################
 
-
 # Server authorized user name.
-USER_NAME="gabriel61"
+USER_NAME="john-smith"
 # Server name.
-SERVER_NAME="gabrielmiro.com"
+SERVER_NAME="example-server.com"
 # Port.
 PORT="2222"
