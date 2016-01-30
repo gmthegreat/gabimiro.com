@@ -81,8 +81,8 @@ function generate_word_press_config {
 function install_word_press {
   cd $ROOT/www
   wp core install \
-  --url=$SERVER_BASE_PATH \
-  --admin_name=$admin_name \
+  --url=$SERVER_BASE_URL \
+  --admin_name=$ADMIN_USERNAME \
   --admin_password=$ADMIN_PASSWORD \
   --admin_email=$ADMIN_EMAIL \
   --title=$SERVER_TITLE
