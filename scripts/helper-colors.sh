@@ -62,7 +62,7 @@ function test_colors_all {
   echo -e "${CYAN} CYAN text ${RESTORE}"
   echo -e "${WHITE} WHITE text ${RESTORE}"
   echo
-  
+
   echo "Lighter colors"
   echo -e "${LBLACK} LBLACK text ${RESTORE} (LBLACK)"
   echo -e "${LRED} LRED text ${RESTORE}"
@@ -73,7 +73,7 @@ function test_colors_all {
   echo -e "${LCYAN} LCYAN text ${RESTORE}"
   echo -e "${LWHITE} WHITE text ${RESTORE}"
   echo
-  
+
   echo "BACKGROUND colors"
   echo -e "${BGBLACK} BGBLACK text ${RESTORE}"
   echo -e "${BGRED} BGRED text ${RESTORE}"
@@ -84,7 +84,7 @@ function test_colors_all {
   echo -e "${BGCYAN} BGCYAN text ${RESTORE}"
   echo -e "${BGWHITE} BGWHITE text ${RESTORE}"
   echo
-  
+
   echo "BACKGROUND with lighter colors"
   echo -e "${BGLBLACK} BGLBLACK text ${RESTORE}"
   echo -e "${BGLRED} BGLRED text ${RESTORE}"
@@ -96,4 +96,3 @@ function test_colors_all {
   echo -e "${BGLWHITE} BGLWHITE text ${RESTORE}"
   echo
 }
-

@@ -15,9 +15,8 @@ function load_config_file {
   if [ ! -f config.sh ]; then
     echo
     echo -e  "${BGRED}                                                                 ${RESTORE}"
-    echo -e  "${BGLRED}   ERROR: No configuration file found!                          ${RESTORE}"
-    echo -e  "${BGRED}  > Check if the ${BGLRED}config.sh${BGRED} file exists in the   ${RESTORE}"
-    echo -e  "${BGRED}    ${BGLRED}scripts directory${BGRED}.                          ${RESTORE}"
+    echo -e  "${BGLRED}  ERROR: No configuration file found!                            ${RESTORE}"
+    echo -e  "${BGRED}  > Check if the ${BGLRED}config.sh${BGRED} file exists in the ${BGLRED}scripts directory${BGRED}. ${RESTORE}"
     echo -e  "${BGRED}  > If not create one by creating a copy of ${BGLRED}default.config.sh${BGRED}.   ${RESTORE}"
     echo -e  "${BGRED}                                                                 ${RESTORE}"
     echo
