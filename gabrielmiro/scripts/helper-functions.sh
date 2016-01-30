@@ -55,10 +55,10 @@ function create_word_press_core {
   if [[ -z "$WP_VERSION" ]]
   then
     echo -e "${LBLUE}> Downloading Wordpress latest version... ${RESTORE}"
-    wp core download
+    wp core download --path=www
     # Downloading Wordpress latest version.
   else
     echo -e "${LBLUE}> Downloading Wordpress version $WP_VERSION  ${RESTORE}"
-    wp core download $WP_VERSION
+    wp core download --path=www --version=$WP_VERSION
   fi
 }

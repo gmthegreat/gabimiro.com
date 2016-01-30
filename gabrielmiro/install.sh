@@ -15,15 +15,12 @@ ROOT=$(pwd)
 cd $ROOT
 
 # Load the colors.
-source $ROOT/helper-colors.sh
+source $ROOT/scripts/helper-colors.sh
 
 # Load the helpers.
-source $ROOT/helper-functions.sh
+source $ROOT/scripts/helper-functions.sh
 
 # Load the configuration.
-load_config_file
-
-# Download Wordpress.
 load_config_file
 
 # Cleanup the www directory.

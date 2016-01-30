@@ -27,19 +27,7 @@
 #===========#
 # Wordpress #
 #===========#
-*.log
-.htaccess
-sitemap.xml
-sitemap.xml.gz
-wp-config.php
-wp-content/*
-!wp-content/plugins/
-!wp-content/mu-plugins/
-!wp-content/themes/
-
-/readme.html
-/license.txt
-
+www
 
 #====================#
 # Logs and databases #
