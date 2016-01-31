@@ -6,7 +6,6 @@
 #
 ################################################################################
 
-
 ##
 # Load the configuration file.
 # Will exit with an error message if the configuration file does not exists!
@@ -33,8 +32,13 @@ function load_config_file {
 # Delete the site database.
 ##
 function delete_the_site_db {
-  echo -e "${LBLUE}> Deleting the Database ${RESTORE}"
-  mysql --user=$MYSQL_USERNAME --password=$MYSQL_PASSWORD -e "DROP DATABASE IF EXISTS $MYSQL_HOSTNAME ;"
+    echo -e "${LBLUE}> Cleaning up the site database ${RESTORE}"
+    # Deleting the database if exists and re-creating a fresh Database instead.
+    mysql \
+    --user=$MYSQL_USERNAME \
+    --password=$MYSQL_PASSWORD \
+    --execute="DROP SCHEMA IF EXISTS $MYSQL_DB_NAME; CREATE SCHEMA $MYSQL_DB_NAME"
+    echo
 }
 
 
@@ -43,14 +47,14 @@ function delete_the_site_db {
 ##
 function delete_site_www_directory {
   if [ -d $ROOT/www/ ]; then
-    echo -e "${LBLUE}> Cleaning up the www directory${RESTORE}"
+    echo -e "${LBLUE}> Cleaning up the www directory ${RESTORE}"
     rm -rf $ROOT/www/
     echo
   fi
 
   # Create the www directory if necessary.
   if [ ! -d $ROOT/www ]; then
-    echo -e "${LBLUE}> Creating an empty www directory${RESTORE}"
+    echo -e "${LBLUE}> Creating an empty www directory. ${RESTORE}"
     mkdir $ROOT/www
     echo
   fi
@@ -64,31 +68,36 @@ function generate_word_press_core {
   # Downloading Wordpress latest version.
   if [[ -z "$WP_VERSION" ]]
   then
-    echo -e "${LBLUE}> Downloading Wordpress latest version... ${RESTORE}"
+    echo -e "${LBLUE}> Downloading Wordpress latest version ${RESTORE}"
     wp core download --path=www
+    echo
     # Downloading Wordpress latest version.
   else
     echo -e "${LBLUE}> Downloading Wordpress version $WP_VERSION  ${RESTORE}"
     wp core download --path=www --version=$WP_VERSION
+    echo
   fi
 }
 
 ##
-# Create Wordpress config file.
+# Generating Wordpress config file.
 ##
 function generate_word_press_config {
+  echo -e "${LBLUE}> Generating Wordpress config file ${RESTORE}"
   cd $ROOT/www
   wp core config \
   --dbhost=$MYSQL_HOSTNAME \
   --dbname=$MYSQL_DB_NAME \
   --dbuser=$MYSQL_USERNAME \
   --dbpass=$MYSQL_PASSWORD
+  echo
 }
 
 ##
 # Install Wordpress.
 ##
 function install_word_press {
+  echo -e "${LBLUE}> Install Wordpress ${RESTORE}"
   cd $ROOT/www
   wp core install \
   --url=$SERVER_BASE_URL \
@@ -96,4 +105,5 @@ function install_word_press {
   --admin_password=$ADMIN_PASSWORD \
   --admin_email=$ADMIN_EMAIL \
   --title=$SERVER_TITLE
+  echo
 }
