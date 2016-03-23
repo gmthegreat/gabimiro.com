@@ -8,6 +8,8 @@
 #
 # In case you get an error "access forbidden" then check your "user name" and
 # that your "ssh public key" was properly added to the server.
+# Adding your ssh public key to the server .ssh/authorized_keys:
+# http://www.thegeekstuff.com/2008/11/3-steps-to-perform-ssh-login-without-password-using-ssh-keygen-ssh-copy-id/)
 #
 # Do not change this file, Config should be defiend on the "config.sh".
 #

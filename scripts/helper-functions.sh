@@ -71,7 +71,7 @@ function generate_word_press_core {
     echo -e "${LBLUE}> Downloading Wordpress latest version ${RESTORE}"
     wp core download --path=www
     echo
-    # Downloading Wordpress latest version.
+    # Downloading specific Wordpress version.
   else
     echo -e "${LBLUE}> Downloading Wordpress version $WP_VERSION  ${RESTORE}"
     wp core download --path=www --version=$WP_VERSION
