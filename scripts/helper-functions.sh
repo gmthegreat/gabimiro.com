@@ -32,32 +32,38 @@ function load_config_file {
 # Delete the site database.
 ##
 function delete_the_site_db {
-    echo -e "${LBLUE}> Cleaning up the site database ${RESTORE}"
+    echo -e "${LBLUE}Creating the website database ${RESTORE}"
     # Deleting the database if exists and re-creating a fresh Database instead.
     mysql \
     --user=$MYSQL_USERNAME \
     --password=$MYSQL_PASSWORD \
     --execute="DROP SCHEMA IF EXISTS $MYSQL_DB_NAME; CREATE SCHEMA $MYSQL_DB_NAME"
+    echo -e "${LGREEN}Success:${LGREEN}" \
+      "${WHITE}Database:${WHITE}" \
+      "${LGREEN}$MYSQL_DB_NAME${LGREEN}" \
+      "${WHITE}created successfully.${WHITE}"
     echo
 }
 
 
 ##
-# Delete all the content within the /www dircetory.
+# Delete all the content within the /www dircetory.S
 ##
 function delete_site_www_directory {
+  # Delete the www directory if it exists.
   if [ -d $ROOT/www/ ]; then
-    echo -e "${LBLUE}> Cleaning up the www directory ${RESTORE}"
     rm -rf $ROOT/www/
-    echo
   fi
 
-  # Create the www directory if necessary.
+  # Create a clean www directory.
   if [ ! -d $ROOT/www ]; then
-    echo -e "${LBLUE}> Creating an empty www directory. ${RESTORE}"
     mkdir $ROOT/www
-    echo
   fi
+
+  echo -e "${LBLUE}Creating the www directory ${RESTORE}"
+  echo -e "${LGREEN}Success: ${LGREEN}${WHITE}Directory created successfully.${WHITE}"
+  echo
+
 }
 
 
@@ -68,12 +74,12 @@ function generate_word_press_core {
   # Downloading Wordpress latest version.
   if [[ -z "$WP_VERSION" ]]
   then
-    echo -e "${LBLUE}> Downloading Wordpress latest version ${RESTORE}"
+    echo -e "${LBLUE}Downloading Wordpress latest version ${RESTORE}"
     wp core download --path=www
     echo
     # Downloading specific Wordpress version.
   else
-    echo -e "${LBLUE}> Downloading Wordpress version $WP_VERSION  ${RESTORE}"
+    echo -e "${LBLUE}Downloading Wordpress version $WP_VERSION ${RESTORE}"
     wp core download --path=www --version=$WP_VERSION
     echo
   fi
@@ -83,7 +89,7 @@ function generate_word_press_core {
 # Generating Wordpress config file.
 ##
 function generate_word_press_config {
-  echo -e "${LBLUE}> Generating Wordpress config file ${RESTORE}"
+  echo -e "${LBLUE}Generating Wordpress config file ${RESTORE}"
   cd $ROOT/www
   wp core config \
   --dbhost=$MYSQL_HOSTNAME \
@@ -97,7 +103,7 @@ function generate_word_press_config {
 # Install Wordpress.
 ##
 function install_word_press {
-  echo -e "${LBLUE}> Install Wordpress ${RESTORE}"
+  echo -e "${LBLUE}Install Wordpress ${RESTORE}"
   cd $ROOT/www
   wp core install \
   --url=$SERVER_BASE_URL \
