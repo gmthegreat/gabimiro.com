@@ -8,8 +8,12 @@
 #
 #########################################################################################
 
-# THe WordPress version to install.
-WP_VERSION="latest"
+# THe WordPress version to install (optional).
+# Empty => Latest version.
+WP_VERSION=""
+# THe WordPress Locale language (optional).
+# Empty => "en_US".
+WP_LOCALE=""
 # Modify the URL below to match your local domain the site will be accessible on.
 SERVER_TITLE="gabimiro"
 SERVER_BASE_URL="http://localhost/gabimiro.com/www/"

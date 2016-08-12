@@ -1,5 +1,0 @@
-# Login credentials for MYSQL CLI.
-# Modify the MySQL settings below so they will match your own.
-[client]
-user="my_user"
-password="my_password"

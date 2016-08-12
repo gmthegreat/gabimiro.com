@@ -37,3 +37,9 @@ generate_word_press_config
 
 # Install Wordpress.
 install_word_press
+
+# Set up themes.
+manage_themes
+
+# Set up plugins.
+manage_plugins
