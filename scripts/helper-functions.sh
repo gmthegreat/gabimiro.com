@@ -12,7 +12,7 @@
 ##
 function load_config_files {
   # Check if the site config file exist.
-  if [ ! -f $ROOT/config.sh ]; then
+  if [ ! -f $ROOT/config/config.sh ]; then
     echo
     echo -e  "${BGRED}                                                                 ${RESTORE}"
     echo -e  "${BGLRED}  ERROR: No configuration file found!                            ${RESTORE}"
@@ -23,7 +23,7 @@ function load_config_files {
   fi
 
   # Check if the site config file exist.
-  if [ ! -f $ROOT/config-db.cnf ]; then
+  if [ ! -f $ROOT/config/config-db.cnf ]; then
     echo
     echo -e  "${BGRED}                                                                 ${RESTORE}"
     echo -e  "${BGLRED}  ERROR: No DB configuration file found!                            ${RESTORE}"
@@ -35,7 +35,7 @@ function load_config_files {
   fi
 
   # Include the configuration file.
-  source config.sh
+  source config/config.sh
 }
 
 
@@ -47,7 +47,7 @@ function delete_the_site_db {
     # Deleting the database if exists and re-creating a fresh Database instead.
 
     mysql \
-    --defaults-extra-file=$ROOT/config-db.cnf \
+    --defaults-extra-file=$ROOT/config/config-db.cnf \
     --execute="DROP SCHEMA IF EXISTS $MYSQL_DB_NAME; CREATE SCHEMA $MYSQL_DB_NAME"
     echo -e "${LGREEN}Success:${LGREEN}" \
       "${WHITE}Database:${WHITE}" \
