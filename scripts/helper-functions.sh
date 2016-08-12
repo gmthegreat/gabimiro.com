@@ -65,7 +65,7 @@ function delete_the_site_db {
     --execute="DROP SCHEMA IF EXISTS $MYSQL_DB_NAME; CREATE SCHEMA $MYSQL_DB_NAME"
     echo -e "${LGREEN}Success:${LGREEN}" \
       "${WHITE}Database:${WHITE}" \
-      "${LGREEN}$MYSQL_DB_NAME${LGREEN}" \
+      "${LWHITE}$MYSQL_DB_NAME${LWHITE}" \
       "${WHITE}created successfully.${WHITE}"
     echo
 }
@@ -145,18 +145,24 @@ function install_word_press {
 # Install Wordpress.
 ##
 function symlink_plugins {
-  echo -e "${LBLUE}Symlinking Plugins ${RESTORE}"
+  echo -e "${LBLUE}Custom plugins - symlinking ${RESTORE}"
   # Symlink the plugins.
   ln -s $ROOT/assets/custom-plugins/* $ROOT/www/wp-content/plugins
-  echo -e "${LGREEN}Success: ${LGREEN}${WHITE}Custom plugins have been successfully linked to wp-content/plugins directory.${WHITE}"
+  echo -e "${LGREEN}Success:${LGREEN}" \
+          "${WHITE}Linked to${WHITE}" \
+          "${LWHITE}wp-content/plugins${LWHITE}" \
+          "${WHITE}directory.${WHITE}"
   echo
 }
 
 function symlink_themes {
-  echo -e "${LBLUE}Symlinking Themes ${RESTORE}"
+  echo -e "${LBLUE}Custom Themes - symlinking ${RESTORE}"
   # Symlink the themes.
   ln -s $ROOT/assets/custom-themes/* $ROOT/www/wp-content/themes
-  echo -e "${LGREEN}Success: ${LGREEN}${WHITE}Custom themes have been successfully linked to wp-content/themes directory.${WHITE}"
+  echo -e "${LGREEN}Success:${LGREEN}" \
+          "${WHITE}Linked to${WHITE}" \
+          "${LWHITE}wp-content/themes${LWHITE}" \
+          "${WHITE}directory.${WHITE}"
   echo
 }
 
@@ -169,14 +175,14 @@ function manage_themes {
   # Symink Themes.
   symlink_themes
 
-  declare -A array
-  array[theme1]=bar
-  array[theme2]=foo
-
-  for i in "${!array[@]}"
-    do
-    echo "$i => ${array[$i]}"
-  done
+#  declare -A array
+#  array[theme1]=bar
+#  array[theme2]=foo
+#
+#  for i in "${!array[@]}"
+#    do
+#    echo "$i => ${array[$i]}"
+#  done
 
   activate_theme
 }
@@ -189,14 +195,14 @@ function manage_plugins {
   # Symink Plugins.
   symlink_plugins
 
-  declare -A array
-  array[plugin1]=bar
-  array[plugin2]=foo
-
-  for i in "${!array[@]}"
-    do
-    echo "$i => ${array[$i]}"
-  done
+#  declare -A array
+#  array[plugin1]=bar
+#  array[plugin2]=foo
+#
+#  for i in "${!array[@]}"
+#    do
+#    echo "$i => ${array[$i]}"
+#  done
 }
 
 
