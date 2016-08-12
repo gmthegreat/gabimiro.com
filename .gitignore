@@ -60,3 +60,4 @@ Thumbs.db
 # Local Configuration #
 #=====================#
 config.sh
+config-db.cnf

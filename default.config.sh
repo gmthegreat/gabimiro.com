@@ -8,9 +8,14 @@
 #
 #########################################################################################
 
-# THe WordPress version to install (optional).
-WP_VERSION=""
+# THe WordPress version to install.
+WP_VERSION="latest"
 # Modify the URL below to match your local domain the site will be accessible on.
+SERVER_TITLE="gabimiro"
+SERVER_BASE_URL="http://localhost/gabimiro.com/www/"
+SERVER_BASE_PATH="/var/www/html/gabimiro.com/"
+
+# Theme.
 SERVER_TITLE="gabimiro"
 SERVER_BASE_URL="http://localhost/gabimiro.com/www/"
 SERVER_BASE_PATH="/var/www/html/gabimiro.com/"

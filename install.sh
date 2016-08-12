@@ -20,8 +20,8 @@ source $ROOT/scripts/helper-colors.sh
 # Load the helpers.
 source $ROOT/scripts/helper-functions.sh
 
-# Load the configuration.
-load_config_file
+# Load the configuration files.
+load_config_files
 
 # Delete the site database
 delete_the_site_db
