@@ -20,6 +20,13 @@ source $ROOT/scripts/helper-colors.sh
 # Load the helpers.
 source $ROOT/scripts/helper-functions.sh
 
+
+# Load the configuration files.
+load_config_files
+
+# The initial message.
+init_install_message
+
 # Load the configuration files.
 load_config_files
 

@@ -6,6 +6,7 @@
 #
 ################################################################################
 
+
 ##
 # Load the configuration file.
 # Will exit with an error message if the configuration file does not exists!
@@ -52,6 +53,25 @@ function load_config_files {
   source $ROOT/config/config.sh
 }
 
+##
+# init install message.
+##
+function init_install_message {
+  echo
+  echo -e  "${BGBLUE}                                                                 ${RESTORE}"
+  echo -e  "${BGLBLUE}  Website: $SERVER_TITLE                                              ${RESTORE}"
+  echo -e  "${BGLBLUE}                                                                 ${RESTORE}"
+  echo -e  "${BGBLUE}  This will install the platform as defined in the config file.  ${RESTORE}"
+  echo -e  "${BGBLUE}  If the platform is already installed, it will be removed and   ${RESTORE}"
+  echo -e  "${BGBLUE}  reinstalled.                                                   ${RESTORE}"
+  echo -e  "${BGBLUE}                                                                 ${RESTORE}"
+  echo -e  "${BGBLUE}  OPTIONS:                                                       ${RESTORE}"
+  echo -e  "${BGBLUE}    -d   Load demo content after the installation.               ${RESTORE}"
+  echo -e  "${BGBLUE}    -l   Open a new tab in your default browser and login to     ${RESTORE}"
+  echo -e  "${BGBLUE}         your project as the Administrator.                      ${RESTORE}"
+  echo -e  "${BGBLUE}                                                                 ${RESTORE}"
+  echo
+}
 
 ##
 # Delete the site database.
@@ -145,22 +165,22 @@ function install_word_press {
 # Install Wordpress.
 ##
 function symlink_plugins {
-  echo -e "${LBLUE}Custom plugins - symlinking ${RESTORE}"
+  echo -e "${LBLUE}Custom plugins ${RESTORE}"
   # Symlink the plugins.
   ln -s $ROOT/assets/custom-plugins/* $ROOT/www/wp-content/plugins
   echo -e "${LGREEN}Success:${LGREEN}" \
-          "${WHITE}Linked to${WHITE}" \
+          "${WHITE}Symlinked to${WHITE}" \
           "${LWHITE}wp-content/plugins${LWHITE}" \
           "${WHITE}directory.${WHITE}"
   echo
 }
 
 function symlink_themes {
-  echo -e "${LBLUE}Custom Themes - symlinking ${RESTORE}"
+  echo -e "${LBLUE}Custom Themes ${RESTORE}"
   # Symlink the themes.
   ln -s $ROOT/assets/custom-themes/* $ROOT/www/wp-content/themes
   echo -e "${LGREEN}Success:${LGREEN}" \
-          "${WHITE}Linked to${WHITE}" \
+          "${WHITE}Symlinked to${WHITE}" \
           "${LWHITE}wp-content/themes${LWHITE}" \
           "${WHITE}directory.${WHITE}"
   echo
@@ -188,7 +208,7 @@ function manage_themes {
 }
 
 ##
-# Manage Plugins (Install/Activate/Deactivate/Delete).
+# Manage Plugins (Install/Activate/uninstall).
 ##
 function manage_plugins {
 
