@@ -32,22 +32,8 @@ function load_config_files {
     echo -e  "${BGRED}  > If not create one by creating a copy of ${BGLRED}default.config-db.cnf${BGRED}.   ${RESTORE}"
     echo -e  "${BGRED}                                                                 ${RESTORE}"
     echo
-  fi
-
-  # Check if the site config file exist.
-  if [ ! -f $ROOT/config/themes/config-themes.sh ]; then
-    echo
-    echo -e  "${BGRED}                                                                 ${RESTORE}"
-    echo -e  "${BGLRED}  ERROR: No theme configuration file found!                            ${RESTORE}"
-    echo -e  "${BGRED}  > Check if the ${BGLRED}config-theme.sh${BGRED} file exists in the ${BGLRED}config/theme directory${BGRED}. ${RESTORE}"
-    echo -e  "${BGRED}  > If not create one by creating a copy of ${BGLRED}default.config-themes.sh${BGRED}.   ${RESTORE}"
-    echo -e  "${BGRED}                                                                 ${RESTORE}"
-    echo
     exit 1
   fi
-
-  # Include the configuration file.
-  source $ROOT/config/themes/config-themes.sh
 
   # Include the configuration file.
   source $ROOT/config/config.sh
@@ -167,7 +153,7 @@ function install_word_press {
 function symlink_plugins {
   echo -e "${LBLUE}Custom plugins ${RESTORE}"
   # Symlink the plugins.
-  ln -s $ROOT/assets/custom-plugins/* $ROOT/www/wp-content/plugins
+  ln -s $ROOT/assets/plugins/* $ROOT/www/wp-content/plugins
   echo -e "${LGREEN}Success:${LGREEN}" \
           "${WHITE}Symlinked to${WHITE}" \
           "${LWHITE}wp-content/plugins${LWHITE}" \
@@ -178,7 +164,7 @@ function symlink_plugins {
 function symlink_themes {
   echo -e "${LBLUE}Custom Themes ${RESTORE}"
   # Symlink the themes.
-  ln -s $ROOT/assets/custom-themes/* $ROOT/www/wp-content/themes
+  ln -s $ROOT/assets/themes/* $ROOT/www/wp-content/themes
   echo -e "${LGREEN}Success:${LGREEN}" \
           "${WHITE}Symlinked to${WHITE}" \
           "${LWHITE}wp-content/themes${LWHITE}" \
