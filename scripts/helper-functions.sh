@@ -153,7 +153,7 @@ function install_word_press {
 function symlink_plugins {
   echo -e "${LBLUE}Custom plugins ${RESTORE}"
   # Symlink the plugins.
-  ln -s $ROOT/assets/plugins/* $ROOT/www/wp-content/plugins
+  ln -s $ROOT/profile/plugins/* $ROOT/www/wp-content/plugins
   echo -e "${LGREEN}Success:${LGREEN}" \
           "${WHITE}Symlinked to${WHITE}" \
           "${LWHITE}wp-content/plugins${LWHITE}" \
@@ -164,7 +164,7 @@ function symlink_plugins {
 function symlink_themes {
   echo -e "${LBLUE}Custom Themes ${RESTORE}"
   # Symlink the themes.
-  ln -s $ROOT/assets/themes/* $ROOT/www/wp-content/themes
+  ln -s $ROOT/profile/themes/* $ROOT/www/wp-content/themes
   echo -e "${LGREEN}Success:${LGREEN}" \
           "${WHITE}Symlinked to${WHITE}" \
           "${LWHITE}wp-content/themes${LWHITE}" \
