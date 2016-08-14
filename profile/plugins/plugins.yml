@@ -1,0 +1,29 @@
+plugins:
+  # Install a particular plugin version.
+  - name: bbpress
+    version: 1.2
+
+  # Install the dev version.
+  - name: theme-check
+    version: dev
+
+  - name: cache-cleaner
+    # Install the latest version.
+    version: latest
+
+  # Only deactivate the plugin without deleting the plugin directory.
+  - name: akismet
+    deactivate: yes
+
+  # Deletes the plugin directory (Prior to the delete process it will deactivate
+  # the plugin if it's status is active).
+  - name: hello-dolly
+    uninstall: yes
+
+  # Install a plugin via a remote url.
+  - name: my-remote-plugin
+    url: http://s3.amazonaws.com/bucketname/my-remote-plugin.zip
+
+  # Install a plugin via a local path.
+  - name: my-local-plugin
+    url: ../../plugins/my-local-plugin.zip

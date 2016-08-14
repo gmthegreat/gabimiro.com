@@ -1,0 +1,24 @@
+themes:
+  list:
+    # Install a particular theme version.
+    - name: twentyfourteen
+      version: 1.2
+
+    # Install the dev version.
+    - name: twentyfifteen
+      version:
+
+    # Install the latest version.
+    - name: zerif-lite
+      version: latest
+
+    # Deletes the theme directory.
+    - name: twentysixteen
+      delete: yes
+
+   # Install a theme via a remote url.
+    - name: my-remote-theme
+      url: http://s3.amazonaws.com/bucketname/my-remote-theme.zip
+
+  # The theme to set as active
+  active_theme: zerif-lite

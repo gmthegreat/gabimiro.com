@@ -1,0 +1,51 @@
+#!/bin/bash -e
+################################################################################
+#
+# This script will setup a local copy of WordPress
+# based on the Installation Profile.
+#
+# Do not change the content of this file,
+# all configuration variables are in the config.sh file.
+#
+################################################################################
+
+# Define the root of the GIT repository.
+cd ${0%/*}
+ROOT=$(pwd)
+cd $ROOT
+
+# Load the colors.
+source $ROOT/scripts/helper-colors.sh
+
+# Load the helpers.
+source $ROOT/scripts/helper-functions.sh
+
+# Load the configuration files.
+load_config_files
+
+# The initial message.
+init_install_message
+
+# Load the configuration files.
+load_config_files
+
+# Cleanup the www directory.
+delete_site_www_directory
+
+# Create Wordpress core files.
+generate_word_press_core
+
+# Generate Wordpress config file.
+generate_word_press_config
+
+# Prepare the site database
+prepare_site_db
+
+# Install Wordpress.
+install_word_press
+
+# Set up themes.
+manage_themes
+
+# Set up plugins.
+manage_plugins
