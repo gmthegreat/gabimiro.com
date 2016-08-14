@@ -1,0 +1,39 @@
+#########################################################################################
+#
+# Do not change this file.
+#
+# Copy this file in the same directory, the filename of the copy should be "site.yaml".
+#
+#########################################################################################
+
+site:
+  # Site install version & locale setup.
+  core:
+    version:
+    locale:
+
+  # Site Admin user credentials.
+  admin_user:
+    name: admin
+    password: admin
+    email: admin@example.com
+
+  # Site default language & install languages setup.
+  languages:
+    deafult_language:
+      name: English
+      code: EN
+    languages_list:
+      - name: Hebrew
+        code: IL
+
+  # Modify the MySQL settings below so they will match your own.
+  database:
+    name: db_name
+    hostname: localhost
+    user:
+      name: root
+      password: root
+    prefix:
+    collate:
+    charset:

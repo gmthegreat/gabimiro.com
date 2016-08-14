@@ -60,5 +60,9 @@ Thumbs.db
 # Local Configuration #
 #=====================#
 config.sh
+site.yml
 config-db.cnf
-profile
+profile/themes/*
+!profile/themes/themes.yml
+profile/plugins/*
+!profile/plugins/plugins.yml

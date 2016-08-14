@@ -14,19 +14,16 @@ WP_VERSION=""
 # THe WordPress Locale language (optional).
 # Empty => "en_US".
 WP_LOCALE=""
+
+
 # Modify the URL below to match your local domain the site will be accessible on.
 SERVER_TITLE="gabimiro"
-SERVER_BASE_URL="http://localhost/gabimiro.com/www/"
-SERVER_BASE_PATH="/var/www/html/gabimiro.com/"
-
-# Theme.
-SERVER_TITLE="gabimiro"
-SERVER_BASE_URL="http://localhost/gabimiro.com/www/"
-SERVER_BASE_PATH="/var/www/html/gabimiro.com/"
+SERVER_BASE_URL="http://localhost/mysite/www/"
+SERVER_BASE_PATH="/var/www/html/mysite/"
 
 
 # Modify the login details below to be the desired
-# login details for the Drupal Administrator account.
+# login details for the Wordpress Administrator account.
 ADMIN_USERNAME="admin"
 ADMIN_PASSWORD="admin"
 ADMIN_EMAIL="admin@example.com"
@@ -36,7 +33,7 @@ ADMIN_EMAIL="admin@example.com"
 MYSQL_USERNAME="root"
 MYSQL_PASSWORD="root"
 MYSQL_HOSTNAME="localhost"
-MYSQL_DB_NAME="gabimiro"
+MYSQL_DB_NAME="my_db"
 
 
 # Modify the login details below to be the desired

@@ -210,17 +210,3 @@ function manage_plugins {
 #    echo "$i => ${array[$i]}"
 #  done
 }
-
-
-##
-# Activate Theme
-##
-function activate_theme {
-  # Activate the theme.
-  if [[ -n "$ACTIVE_THEME" ]]; then
-    echo -e "${LBLUE}Activating theme ${RESTORE}"
-    cd $ROOT/www
-    wp theme activate $ACTIVE_THEME
-    echo
-  fi
-}
