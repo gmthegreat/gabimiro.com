@@ -20,7 +20,6 @@ source $ROOT/scripts/helper-colors.sh
 # Load the helpers.
 source $ROOT/scripts/helper-functions.sh
 
-
 # Load the configuration files.
 load_config_files
 
@@ -30,9 +29,6 @@ init_install_message
 # Load the configuration files.
 load_config_files
 
-# Delete the site database
-delete_the_site_db
-
 # Cleanup the www directory.
 delete_site_www_directory
 
@@ -41,6 +37,9 @@ generate_word_press_core
 
 # Generate Wordpress config file.
 generate_word_press_config
+
+# Prepare the site database
+prepare_site_db
 
 # Install Wordpress.
 install_word_press

@@ -13,7 +13,7 @@
 ##
 function load_config_files {
   # Check if the site config file exist.
-  if [ ! -f $ROOT/config/config.sh ]; then
+  if [ ! -f $ROOT/config.sh ]; then
     echo
     echo -e  "${BGRED}                                                                 ${RESTORE}"
     echo -e  "${BGLRED}  ERROR: No configuration file found!                            ${RESTORE}"
@@ -21,22 +21,12 @@ function load_config_files {
     echo -e  "${BGRED}  > If not create one by creating a copy of ${BGLRED}default.config.sh${BGRED}.   ${RESTORE}"
     echo -e  "${BGRED}                                                                 ${RESTORE}"
     echo
-  fi
-
-  # Check if the site config file exist.
-  if [ ! -f $ROOT/config/database/config-db.cnf ]; then
-    echo
-    echo -e  "${BGRED}                                                                 ${RESTORE}"
-    echo -e  "${BGLRED}  ERROR: No Database configuration file found!                            ${RESTORE}"
-    echo -e  "${BGRED}  > Check if the ${BGLRED}config-db.cnf${BGRED} file exists in the ${BGLRED}config/database/ directory${BGRED}. ${RESTORE}"
-    echo -e  "${BGRED}  > If not create one by creating a copy of ${BGLRED}default.config-db.cnf${BGRED}.   ${RESTORE}"
-    echo -e  "${BGRED}                                                                 ${RESTORE}"
-    echo
     exit 1
   fi
 
+
   # Include the configuration file.
-  source $ROOT/config/config.sh
+  source $ROOT/config.sh
 }
 
 ##
@@ -59,16 +49,16 @@ function init_install_message {
   echo
 }
 
-##
-# Delete the site database.
-##
-function delete_the_site_db {
-    echo -e "${LBLUE}Creating the website database ${RESTORE}"
-    # Deleting the database if exists and re-creating a fresh Database instead.
 
-    mysql \
-    --defaults-extra-file=$ROOT/config/database/config-db.cnf \
-    --execute="DROP SCHEMA IF EXISTS $MYSQL_DB_NAME; CREATE SCHEMA $MYSQL_DB_NAME"
+##
+# Prepare the site database.
+##
+function prepare_site_db {
+    echo -e "${LBLUE}Creating the website database ${RESTORE}"
+
+    # Reseting the database if exists and re-creating a fresh Database instead.
+    wp db query "DROP SCHEMA IF EXISTS $MYSQL_DB_NAME; CREATE SCHEMA $MYSQL_DB_NAME"
+
     echo -e "${LGREEN}Success:${LGREEN}" \
       "${WHITE}Database:${WHITE}" \
       "${LWHITE}$MYSQL_DB_NAME${LWHITE}" \
@@ -177,36 +167,15 @@ function symlink_themes {
 # Manage themes (Install/Activate/Delete).
 ##
 function manage_themes {
-
   # Symink Themes.
   symlink_themes
-
-#  declare -A array
-#  array[theme1]=bar
-#  array[theme2]=foo
-#
-#  for i in "${!array[@]}"
-#    do
-#    echo "$i => ${array[$i]}"
-#  done
-
-  activate_theme
 }
 
 ##
 # Manage Plugins (Install/Activate/uninstall).
 ##
 function manage_plugins {
-
   # Symink Plugins.
   symlink_plugins
 
-#  declare -A array
-#  array[plugin1]=bar
-#  array[plugin2]=foo
-#
-#  for i in "${!array[@]}"
-#    do
-#    echo "$i => ${array[$i]}"
-#  done
 }
